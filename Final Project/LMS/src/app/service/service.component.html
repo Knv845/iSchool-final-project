@@ -1,0 +1,58 @@
+<div class="container mt-5">
+  <h2>Add Your Clothes</h2>
+  <div class="center">
+    <div class="row">
+      <form name="userform" #userForm="ngForm">
+        <div class="col-6 m-3">
+          <div class="input-group input-group ">
+            <span class="input-group-text" for="name">Name</span>
+            <input type="text"name="name" #uname [(ngModel)]="newuserdata.name" class="form-control" id="name" (input)="name = uname.value" required> 
+            <span *ngIf="name.touched">Please enter your name</span>
+          </div>
+
+        </div>
+        <div class="col-6 m-3">
+          <div class="input-group input-group ">
+            <span class="input-group-text" for="phone">Number</span>
+            <input type="number" name="uphone" #uphone [(ngModel)]="newuserdata.phone" class="form-control" id="uphone" (input)="phone = uphone.value" required>
+          </div>
+        </div>
+        <div class="col-6 m-3">
+          <div class="input-group input-group ">
+            <span class="input-group-text" for="item">Items</span>
+            <input type="text" name="uitem" #uitem [(ngModel)]="newuserdata.item" class="form-control" id="uitem" (input)="item = uitem.value" required="text">
+          </div>
+        </div>
+        <div class="col-6 m-3">
+          <div class="input-group input-group">
+            <span class="input-group-text" for="quantity">Total Quantity</span>
+            <input type="number"  name="uquantity" #uquantity [(ngModel)]="newuserdata.quantity" class="form-control" id="userquantity" (input)="quantity = uquantity.value" required="number"> 
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- <button class="btn btn-primary m-3">Add</button>  -->
+  <h4>Your Tracking Id is : {{trakingid}} </h4>
+  <div class="center">
+    <table class="table mt-5">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Item</th>
+          <th scope="col">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{name}}</td>
+          <td>{{phone}}</td>
+          <td>{{item}}</td>
+          <td>{{quantity}}</td>
+      </tbody>
+    </table>
+  </div>
+  <button  (click)="addNewUser()" class="btn btn-success m-3">Submit</button>
+</div>

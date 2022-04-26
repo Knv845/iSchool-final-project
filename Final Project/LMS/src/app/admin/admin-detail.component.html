@@ -1,0 +1,55 @@
+<h1 class="center mt-5">Admin</h1>
+        <div class="container mt-5">
+<div style="float: left;">
+  <h5>Click To Edit Status<button class="btn btn-warning m-2">Start</button></h5>
+</div>
+<div style="float: right;">
+  <h5>Click To Edit Status<button  class="btn btn-warning m-2">Finish</button></h5>
+</div>
+        </div>
+
+
+<div class="container mb-2">
+    <table class=" table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Number</th>
+            <th scope="col">Items</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Tracking Id</th>
+            <th scope="col">Status</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of userdata; index as idx;">
+            <td>{{ idx + 1 }}</td>
+            <td>{{ user.name }} 
+            <td>{{ user.phone }} 
+            <td>{{ user.item }}</td>
+            <td>{{ user.quantity }}</td>
+            <td>{{ user.trackingid }}</td>
+            <td>{{user.status}}</td>
+            
+            <td><button (click)="editUser(user)" class="btn btn-warning">Edit</button></td>
+            <td><button  (click)="deleteUser(user)" class="btn btn-danger">Delete</button></td>
+             
+             
+</tr>
+        </tbody>
+      </table>
+      
+</div>
+<br>
+<div class="container"  *ngIf="showEditBox">
+<form name="updateUserForm" #updateUserForm="ngForm">
+<div class="mb-3">
+          <label for="edit_status" class="form-label">Update status</label>
+          <input name="ustatus" #edit_status="ngModel" [(ngModel)]="userToUpdate.status" class="form-control" id="edit_status">
+        </div>
+        <button (click)="updateUserInfo(userToUpdate._id)" type="submit" class="btn btn-primary">Update User</button>
+</form>
+</div>

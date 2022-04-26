@@ -1,0 +1,32 @@
+
+<div class="container mt-5">
+   <div class="center">
+       <h2>Track Your Clothes here!</h2>
+       <br>
+       <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Tacking Id</span>
+        <input type="number" class="form-control" [(ngModel)]="tracking" #value1 (input)="tracking = value1.value">
+      </div>
+      <button type="submit" (click) = "findValue()" class="btn btn-dark">Track</button>
+    </div>
+    <br>
+    <br>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">S No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Item</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of userdata;  index as idx ">
+            <td>{{ idx + 1 }}</td>
+            <td>{{ user.name }} 
+            <td>{{ user.item }}</td>
+            <td>{{user.status}}</td>
+</tr>
+        </tbody>
+      </table>
+</div>

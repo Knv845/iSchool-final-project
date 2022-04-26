@@ -1,0 +1,7 @@
+{
+    "onlinedb" : "mongodb+srv://admin:password$123@MyCluster.yu9yw.mongodb.net/laundarydb?retryWrites=true&w=majority",
+    "port" : "5050",
+    "host" : "localhost",
+    "localdb" : "mongodb://127.0.0.1:27017/laundarydb"
+
+}
